@@ -1,12 +1,12 @@
-# SMB2/3 Command Tester and Compliance Scanner
+# SMB2/3 Protocol Scanner and Functionality Testing Tool
 
 ## Overview
 
-A comprehensive Python-based command-line tool for testing SMBv2/v3 protocol functionality and performing automated compliance scans. Built using the `impacket` library, it provides multiple operation modes for enterprise SMB server assessment and security testing.
+A comprehensive Python-based command-line tool for testing SMBv2/v3 protocol functionality and performing automated functionality testing. Built using the `impacket` library, it provides multiple operation modes for enterprise SMB server assessment and security testing.
 
 ### Key Features
 
-1. **Automated Compliance Scanning**: Comprehensive test suites for SMB2/3 protocol compliance
+1. **Automated Functionality Testing**: Comprehensive test suites for SMB2/3 protocol operations
 2. **Interactive Command Mode**: Granular testing of specific SMB operations
 3. **Advanced Authentication**: Support for NTLM, Kerberos, Pass-the-Hash, and Anonymous authentication
 4. **Protocol Analysis**: SMB dialect detection and capability assessment
@@ -23,7 +23,7 @@ pip install impacket
 ## Quick Start
 
 ```bash
-# Basic compliance scan with NTLM authentication
+# Basic functionality scan with NTLM authentication
 python smb_protocol_scanner.py scan -s server.example.com -u username -p password sharename
 
 # Anonymous access dialect analysis
@@ -69,11 +69,11 @@ python smb_protocol_scanner.py scan -s server --auth-method anonymous sharename
 
 ### Core Analysis Commands
 
-#### `scan` - Comprehensive Compliance Scanning
-Performs automated testing of SMB2/3 protocol compliance with detailed reporting.
+#### `scan` - Comprehensive Functionality Testing
+Performs automated testing of SMB2/3 protocol functionality with detailed reporting.
 
 ```bash
-# Standard compliance scan
+# Standard functionality scan
 python smb_protocol_scanner.py scan -s <server> -u <user> -p <pass> <share>
 
 # Full scan with all information levels
@@ -87,7 +87,7 @@ python smb_protocol_scanner.py scan -s <server> --auth-method anonymous <share>
 - Protocol version and capabilities
 - Authentication method used
 - Success/failure rates for different SMB operations
-- Detailed compliance assessment
+- Detailed functionality assessment
 
 #### `dialect-scan` - SMB Protocol Analysis
 Analyzes supported SMB dialects and server capabilities.
@@ -237,7 +237,7 @@ python smb_protocol_scanner.py dialect-scan -s server.corp.com -u admin -p passw
 # 2. Authentication method testing
 python smb_protocol_scanner.py auth-test -s server.corp.com -u admin -p password
 
-# 3. Comprehensive compliance scan
+# 3. Comprehensive functionality scan
 python smb_protocol_scanner.py scan -s server.corp.com -u admin -p password shared_folder --full
 
 # 4. Security information gathering
