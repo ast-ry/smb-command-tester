@@ -1453,7 +1453,7 @@ def run_scan(conn, args):
     dialect = conn.getDialect()
     dialect_info = analyze_dialect_details(dialect)
     
-    print(f"[*] Starting compliance scan on {args.server}...")
+    print(f"[*] Starting functionality scan on {args.server}...")
     print(f"[*] Protocol: {dialect_info['name']} ({dialect_info['hex_code']}) - {dialect_info['version']}")
     print(f"[*] Using share '{args.share}' for tests (files will be created and deleted).")
 
@@ -1795,11 +1795,11 @@ def run_dialect_scan(conn, args):
 # --- Main Application Logic ---
 def main():
     parser = argparse.ArgumentParser(
-        description="""SMB2/3 Command Tester and Compliance Scanner
+        description="""SMB2/3 Protocol Scanner and Functionality Testing Tool
 
 A comprehensive tool for testing SMB protocol functionality with support for:
 • Multiple authentication methods (NTLM, Kerberos, Pass-the-Hash, Anonymous)
-• Protocol analysis and compliance scanning  
+• Protocol analysis and functionality testing  
 • File operations and security assessment
 • Advanced SMB dialect detection and capability testing
 
@@ -1836,7 +1836,7 @@ Examples:
     auth_group.add_argument("--aes-key", help="AES key for Kerberos authentication")
 
     # --- Scanner Command ---
-    p_scan = subparsers.add_parser('scan', help='Runs a compliance scan against the server', parents=[parent_parser])
+    p_scan = subparsers.add_parser('scan', help='Runs a functionality scan against the server', parents=[parent_parser])
     p_scan.add_argument('share', help='A writable share for testing file/directory operations')
     p_scan.add_argument('--full', action='store_true', help='Run a full scan, including all information levels')
     p_scan.set_defaults(func=run_scan)
